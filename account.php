@@ -3,7 +3,7 @@
   <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <header>
@@ -15,7 +15,7 @@
           <ul>
             <li><a href="login.php">home</a></li>
             <li><a href="deposit.html">deposit</a></li>
-            <li><a href="transfer.html">transfer</a></li>
+            <li><a href="transfer.">transfer</a></li>
             <li><a href="atm.html">atm</a></li>
             </ul>
         </div>
@@ -29,12 +29,13 @@
           <tr>
             <th>UserName</th>
             <th>Email</th>
-            <th>name</th>
+            <th>Name</th>
             <th>Address</th>
             <th>Account Number</th>
             <th>Pin Number</th>
             <th>Balance</th>
           </tr>
+
           <?php
           $conn = mysqli_connect("localhost", "root", "", "users");
           if ($conn -> connect_error) {
@@ -78,9 +79,9 @@
       <li><b></b>2020, All Rights Reserved</li>
     </ul>
       <div class="footer-sm">
-        <c href="#"><img src = "facebook.png" alt = "favebook icon"></c>
-        <c href="#"><img src = "youtube.png" alt = "youtube icon"></c>
-        <c href="#"><img src = "twitter.png" alt = "twitter icon"></c>
+        <a href="#"><img src = "facebook.png" alt = "favebook icon"></a>
+        <a href="#"><img src = "youtube.png" alt = "youtube icon"></a>
+        <a href="#"><img src = "twitter.png" alt = "twitter icon"></a>
       </div>
   </footer>
   </body>

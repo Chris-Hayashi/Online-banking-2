@@ -3,7 +3,7 @@
   <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <header>
@@ -21,7 +21,7 @@
         </div>
       </nav>
     </header>
-    <register>
+    <div>
       <div class = "register-body">
         <div class="register-box">
           <h1>register</h1>
@@ -48,7 +48,7 @@
           </form>
         </div>
       </div>
-  </register>
+</div>
 
 
   <footer>
@@ -67,9 +67,9 @@
       <li><b></b>2020, All Rights Reserved</li>
     </ul>
       <div class="footer-sm">
-        <c href="#"><img src = "facebook.png" alt = "favebook icon"></c>
-        <c href="#"><img src = "youtube.png" alt = "youtube icon"></c>
-        <c href="#"><img src = "twitter.png" alt = "twitter icon"></c>
+        <a href="#"><img src = "images/facebook.png" alt = "favebook icon"></a>
+        <a href="#"><img src = "images/youtube.png" alt = "youtube icon"></a>
+        <a href="#"><img src = "images/twitter.png" alt = "twitter icon"></a>
       </div>
   </footer>
   </body>
