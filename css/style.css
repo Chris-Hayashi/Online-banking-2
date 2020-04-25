@@ -1,0 +1,87 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow: hidden;
+}
+
+.card {
+    width: 18rem;
+    box-shadow: 5px 4px rgba(0, 0, 0, 0.233);
+    margin: auto;
+    margin-top: 0px;
+}
+
+.container {
+    text-align: center
+}
+
+.icon {
+    width: 30%;
+    height: auto;
+    margin-bottom:10px;
+}
+
+.iconText {
+    font-size: 30px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.jumbotron {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.288)), url("./../images/mount-fuji-8626x2859-mountains-sunset-landscape-panorama-4k-8k-12842.jpg");
+    /* width: 100%;
+    height: auto;
+    background-repeat: no-repeat; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* margin-bottom: 0; */
+}
+
+.navbar{
+    background-color: #b1bfd8;
+    background-image: linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%);
+
+    padding-top:20px;
+    padding-bottom:20px;
+   
+}
+
+#homeLink{
+    color:rgb(224, 223, 223);
+    font-size:1.9em;
+    letter-spacing:2px;
+    font-weight:bold;
+    margin-top:3px;
+    margin-bottom:3px;
+    margin-left:10px;
+}
+
+
+#firstCol {
+    border-right: 5px solid black;
+}
+
+#lastCol {
+    border-left: 5px solid black;
+}
+
+#loginBtn {
+    height: 40px;
+    border-radius:65%;
+    width:75%;
+    background:#a8adb6 ;
+    color:white ;
+    font-size:1.3em;
+
+}
+
+#registerBtn {
+    color: black;
+}
+
+#registerBtn:hover {
+    text-decoration: underline;
+}
