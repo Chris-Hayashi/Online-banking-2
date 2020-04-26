@@ -1,3 +1,4 @@
+<!-- <!DOCTYPE html> -->
 <html lang="en" dir="ltr">
 
 <head>
@@ -11,7 +12,7 @@
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/reset.css" />
+    <!-- <link rel="stylesheet" href="/reset.css" /> -->
 </head>
 
 <body>
@@ -84,7 +85,8 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" id="homeLink" href="#">Online Banking</a>
+      <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
+        <!-- <a class="navbar-brand" id="homeLink" href="#">Online Banking</a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -99,10 +101,10 @@
     </nav>
 
     <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid" style="text-align: center;">
         <div class="container">
           <!-- Login Form -->
-            <div class="card p-3">
+            <div class="card p-3" id="loginContainer">
                 <div class="card-body">
                     <h5 class="card-title">View Your Accounts</h5>
                     <form id="loginForm">
@@ -113,6 +115,8 @@
                         <br />
                         <br />
                         <button id="loginBtn" type="submit">Sign On</button>
+                        <br><br>
+                        <a href="/register.php" id="registerBtn">Register</a>
                     </form>
                 </div>
             </div>
@@ -120,7 +124,7 @@
     </div>
 
     <!-- Grid (bottom) -->
-    <div id="grid">
+    <div id="grid"  style="text-align: center;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4" id="firstCol">
