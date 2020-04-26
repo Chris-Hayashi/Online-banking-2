@@ -14,9 +14,6 @@
         </div>
           <ul>
             <li><a href="login.php">home</a></li>
-            <li><a href="deposit.html">deposit</a></li>
-            <li><a href="transfer.html">transfer</a></li>
-            <li><a href="atm.html">atm</a></li>
             </ul>
         </div>
       </nav>
@@ -26,16 +23,16 @@
     <div class = "wrapper">
       <section class="login-banner">
             <div class="login-box">
-              <h1 align = "center">Login Here</h1>
+              <h1 align = "center">Login</h1>
               <form action="login.php" method="post">
-                <p>UserName</p>
-                <input type="text" name="userName" placeholder="Enter the UserName" value="">
+                <p>Username</p>
+                <input type="text" name="userName" placeholder="Enter Username" value="">
                 <p>Password</p>
-                <input type="password" name="password" placeholder="Enter the Password" value="">
+                <input type="password" name="password" placeholder="Enter Password" value="">
                 <input type="submit" name="login" value="Login">
                 <a href="#">Forget Password</a>
                 <a href="#">Privacy and Security</a>
-                <input type="button" onclick="location.href='register.html';" value="Registration" />
+                <input type="button" onclick="location.href='register.php';" value="Register" />
             </div>
 
             <div class="information-area">
