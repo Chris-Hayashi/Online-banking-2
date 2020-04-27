@@ -14,8 +14,8 @@
         </div>
           <ul>
             <li><a href="login.php">home</a></li>
-            <li><a href="deposit.html">deposit</a></li>
-            <li><a href="transfer.">transfer</a></li>
+            <li><a href="deposit.php">deposit</a></li>
+            <li><a href="transfer.php">transfer</a></li>
             <li><a href="atm.html">atm</a></li>
             </ul>
         </div>
