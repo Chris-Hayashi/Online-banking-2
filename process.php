@@ -1,19 +1,17 @@
-<html>
-  <head>
-    <title>processing file</title>
-  </head>
-  <body>
-    <h1>processing</h1>
+session_start();
     <?php
-
-
     if (isset($_POST["userName"]) && isset($_POST["password"])){
       if($_POST["userName"] && $_POST["password"]){
-          $username = $_POST["userName"];
-          $password = $_POST["password"];
+          $firstName = $_POST["firstName"];
+          $lastName = $_POST["lastName"];
           $email = $_POST["email"];
-          $name = $_POST["name"];
+          $userName = $_POST["userName"];
+          $password = $_POST["password"];
+          $state = $_POST["state"];
+          $city = $_POST["city"];
           $address = $_POST["address"];
+          $zipCode = $_POST["zipCode"];
+          $dob = $_POST["dob"];
           $accountNumber = $_POST["accountNumber"];
           $pin = $_POST["pin"];
           $balance = $_POST["balance"];
@@ -24,13 +22,13 @@
         if (!$conn){
           die("connection failed: ".mysqli_connect_error());
         }
-          $sql = "INSERT INTO student(username, password, email, name, address, accountNumber, pin, balance) VALUES
-          ('$username', '$password', '$email', '$name', '$address', '$accountNumber', '$pin', '$balance')";
+          $sql = "INSERT INTO student(firstName, lastName, email, userName, password, state, city, address, zipCode, dob, accountNumber, pin, balance) VALUES
+          ('$firstName', '$lastName', '$email', '$userName', '$password', '$state', '$city', '$address', '$zipCode', '$dob', '$accountNumber', '$pin', '$balance')";
 
           $results = mysqli_query($conn, $sql);
 
           if ($results){
-            echo "user has been added";
+            header("location: account.php");
           }
           else{
             echo mysqli_error($conn);
