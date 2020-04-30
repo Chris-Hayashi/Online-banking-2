@@ -1,29 +1,49 @@
 
+         <!-- <!DOCTYPE html> -->
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-    <nav>
-      <div class="img-future">
-        <div class="header-brand">
-          <h1>Bank Of Future</h1>
-        </div>
-          <ul>
-            <li><a href="login.php">home</a></li>
-            </ul>
-        </div>
-      </nav>
-    </header>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script crossorigin defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
+        integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="/reset.css" /> -->
+</head>
 
-    <transfer>
-      <div class = "transfer-body">
-        <div class="transfer-box">
-          <h1>Transfer Funds</h1>
-          <form class="" action="transfer.php" method="post">
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="account.php">
+      <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
+      </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <div class="nav-item">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid" style="text-align: center;">
+        <div class="container">
+          <!-- Login Form -->
+            <div class="card p-3" id="loginContainer">
+                <div class="card-body">
+                    <h5 class="card-title">Transfer Funds</h5>
+         <form class="" action="transfer.php" method="post">
                 <p>Account Number</p>
                 <input type="text" name="accountNumber" placeholder="Enter Your Account Number" value="">
                 <p>Pin Number</p>
@@ -34,32 +54,41 @@
                 <input type="text" name="transferAmount" placeholder="Enter Transfer Amount" value="">
                 <input type="submit" name="submit" value="Submit">
           </form>
+          </div>
+            </div>
         </div>
-      </div>
-</transfer>
+    </div>
 
-  <footer>
-    <ul class="footer-main">
-      <li>Location</li>
-      <li>Contact Us</li>
-      <li>Privacy & Security</li>
-      <li>Sitemap</li>
-      <li>feedback</li>
-    </ul>
-    <ul class="footer-submain">
-      <li><b></b>Bank of Future</li>
-      <li><b></b>Best Banking in the United State</li>
-      <li><b></b>Location in CMPE 131 Class</li>
-      <li><b></b>Built by group #2</li>
-      <li><b></b>2020, All Rights Reserved</li>
-    </ul>
-      <div class="footer-sm">
-        <c href="#"><img src = "facebook.png" alt = "favebook icon"></c>
-        <c href="#"><img src = "youtube.png" alt = "youtube icon"></c>
-        <c href="#"><img src = "twitter.png" alt = "twitter icon"></c>
-      </div>
-  </footer>
-  </body>
+    <!-- Grid (bottom) -->
+    <div id="grid"  style="text-align: center;">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-4" id="firstCol">
+                <a href="withdrawal.php">
+                <img src="images/withdraw.png" class="icon" />
+                </a>
+                    <p class="iconText">Withdraw Cash</p>
+                </div>
+                <div class="col-md-4 ">
+                <a href="deposit.php">
+                <img src="images/deposit.png" class="icon" />
+                </a>
+                    <p class="iconText">Deposit Checks</p>
+                </div>
+                <div class="col-md-4" id="lastCol">
+                <a href="transfer.php">
+                <img src="images/transfer.png" class="icon" />
+                </a>
+                    <p class="iconText ">Transfer money</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>
 <?php
 
@@ -80,27 +109,23 @@
       $sql = "SELECT * from student where accountNumber = '$accountNumber'";
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_array($result);
-
+      // Destination Account
+      $sql2 = "SELECT * from student where accountNumber = '$destinationAccNum'";
+      $result2 = mysqli_query($conn, $sql2);
+      $row2 = mysqli_fetch_array($result2);
 
       if($row['accountNumber'] == $accountNumber && $row['pin'] == $pin){
+        // Update Og Account Balance
         $balance = $row['balance'];
         $updatedBalance = $balance - $transferAmount;
-        $sql = "UPDATE student SET balance='$updatedBalance' where accountNumber = '$accountNumber'";
+        $sql = "UPDATE student SET balance='$updatedBalance' WHERE accountNumber='$accountNumber' and pin = '$pin'";
+        // Update Destination Account Balance
+        $destinationBalance = $row2['balance'];
+        $updatedDestinationBalance = $destinationBalance + $transferAmount;
+        $sql2 = "UPDATE student SET balance='$updatedDestinationBalance' WHERE accountNumber='$destinationAccNum'";
+        $result3 = mysqli_query($conn, $sql2);
         
             if(mysqli_query($conn, $sql)){
-                $conn2 = mysqli_connect("localhost", "root", "");
-                mysqli_select_db($conn2, "users");
-                if (!$conn2){
-                        die("connection failed: ".mysqli_connect_error());
-                    }
-
-                // Destination Account
-                    $sql = "SELECT balance from student where accountNumber = '$destinationAccNum'";
-                    $result = mysqli_query($conn2, $sql);
-                    $row = mysqli_fetch_array($result);
-                    $destinationBalance = $row['balance'];
-                    $updatedDestinationBalance = $destinationBalance + $transferAmount;
-                    $sql = "UPDATE student SET balance='$updatedDestinationBalance' where accountNumber = '$destinationAccNum'";
                 echo "Amount successfully trasnferred.";
             } else {
                 $message = "Error: Could not trasnfer amount.";

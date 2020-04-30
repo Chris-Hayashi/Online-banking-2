@@ -12,41 +12,9 @@
 </head>
 
 <body id="registerPage">
-    <!-- <header>
-      <nav>
-        <div class="img-future">
-          <div class="header-brand">
-            <h1>Bank Of Future</h1>
-          </div>
-            <ul>
-              <li><a href="login.php">home</a></li>
-              <li><a href="deposit.html">deposit</a></li>
-              <li><a href="transfer.html">transfer</a></li>
-              <li><a href="atm.html">atm</a></li>
-              </ul>
-          </div>
-        </nav>
-      </header> -->
-
-    <!-- Navbar -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" id="homeLink" href="#">Online Banking</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            </ul>
-            <div class="nav-item">
-            </div>
-        </div>
-    </nav> -->
 
     <!-- Register Form -->
     <div>
-
 
         <div class="container">
             <div class="card" id="registerCard">
@@ -64,12 +32,14 @@
 
 
                 </div>
+                <form id="registerForm" action="process.php" method="post">
                 <div class="#" id="registerContainer">
                     <div class="row">
                         <div class="col-md-6 mt-2">
-                            <div class="form-group">
+                            <div class="form-group" >
+                                
                                 <label>First Name<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="firstname"
+                                <input type="text" class="form-control" name="firstName"
                                     placeholder="Enter first name" />
                             </div>
                         </div>
@@ -83,73 +53,20 @@
 
                     <div class="form-group">
                         <label>Street Address<span class="required">*</span></label>
-                        <input type="text" class="form-control" name="state" placeholder="Enter street address" />
+                        <input type="text" class="form-control" name="address" placeholder="Enter street address" />
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>City<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="state" placeholder="Enter city" />
+                                <input type="text" class="form-control" name="city" placeholder="Enter city" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>State<span class="required">*</span></label>
-
-                                <select class="form-control" id="select-inputs">
-                                    <option class="inputs" value="AL">AL</option>
-                                    <option class="inputs" value="AK">AK</option>
-                                    <option class="inputs" value="AR">AR</option>
-                                    <option class="inputs" value="AZ">AZ</option>
-                                    <option class="inputs" value="CA">CA</option>
-                                    <option class="inputs" value="CO">CO</option>
-                                    <option class="inputs" value="CT">CT</option>
-                                    <option class="inputs" value="DC">DC</option>
-                                    <option class="inputs" value="DE">DE</option>
-                                    <option class="inputs" value="FL">FL</option>
-                                    <option class="inputs" value="GA">GA</option>
-                                    <option class="inputs" value="HI">HI</option>
-                                    <option class="inputs" value="IA">IA</option>
-                                    <option class="inputs" value="ID">ID</option>
-                                    <option class="inputs" value="IL">IL</option>
-                                    <option class="inputs" value="IN">IN</option>
-                                    <option class="inputs" value="KS">KS</option>
-                                    <option class="inputs" value="KY">KY</option>
-                                    <option class="inputs" value="LA">LA</option>
-                                    <option class="inputs" value="MA">MA</option>
-                                    <option class="inputs" value="MD">MD</option>
-                                    <option class="inputs" value="ME">ME</option>
-                                    <option class="inputs" value="MI">MI</option>
-                                    <option class="inputs" value="MN">MN</option>
-                                    <option class="inputs" value="MO">MO</option>
-                                    <option class="inputs" value="MS">MS</option>
-                                    <option class="inputs" value="MT">MT</option>
-                                    <option class="inputs" value="NC">NC</option>
-                                    <option class="inputs" value="NE">NE</option>
-                                    <option class="inputs" value="NH">NH</option>
-                                    <option class="inputs" value="NJ">NJ</option>
-                                    <option class="inputs" value="NM">NM</option>
-                                    <option class="inputs" value="NV">NV</option>
-                                    <option class="inputs" value="NY">NY</option>
-                                    <option class="inputs" value="ND">ND</option>
-                                    <option class="inputs" value="OH">OH</option>
-                                    <option class="inputs" value="OK">OK</option>
-                                    <option class="inputs" value="OR">OR</option>
-                                    <option class="inputs" value="PA">PA</option>
-                                    <option class="inputs" value="RI">RI</option>
-                                    <option class="inputs" value="SC">SC</option>
-                                    <option class="inputs" value="SD">SD</option>
-                                    <option class="inputs" value="TN">TN</option>
-                                    <option class="inputs" value="TX">TX</option>
-                                    <option class="inputs" value="UT">UT</option>
-                                    <option class="inputs" value="VT">VT</option>
-                                    <option class="inputs" value="VA">VA</option>
-                                    <option class="inputs" value="WA">WA</option>
-                                    <option class="inputs" value="WI">WI</option>
-                                    <option class="inputs" value="WV">WV</option>
-                                    <option class="inputs" value="WY">WY</option>
-                                </select>
-
+                                <input type="text" class="form-control" name="state" placeholder="Enter city" />
+                                
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -171,7 +88,7 @@
                     </div>
                     <div class="form-group">
                         <label>Username<span class="required">*</span></label>
-                        <input type="text" class="form-control" name="username" placeholder="Enter username" />
+                        <input type="text" class="form-control" name="userName" placeholder="Enter username" />
                     </div>
                     <div class="form-group">
                         <label>Password<span class="required">*</span></label>
@@ -182,14 +99,14 @@
                             <!-- Randomly generated unique account number -->
                             <div class="form-group">
                                 <label>Account Number<span class="required">*</span></label>
-                                <input type="number" class="form-control" name="accountNum" placeholder="" />
+                                <input type="number" class="form-control" name="accountNumber" placeholder="" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <!-- Add in limit of 4 -->
                             <div class="form-group">
                                 <label>Pin Number<span class="required">*</span></label>
-                                <input type="number" class="form-control" name="pinNum"
+                                <input type="number" class="form-control" name="pin"
                                     placeholder="Enter 4 digit pin" />
                             </div>
                         </div>
@@ -204,34 +121,13 @@
                     <button type="submit" className="btn btn-lg btn-primary btn-block" id="register-btn">
                         Register!
                     </button>
-
+                </form>
                 </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- 
-    <footer>
-        <ul class="footer-main">
-            <li>Location</li>
-            <li>Contact Us</li>
-            <li>Privacy & Security</li>
-            <li>Sitemap</li>
-            <li>feedback</li>
-        </ul>
-        <ul class="footer-submain">
-            <li><b></b>Bank of Future</li>
-            <li><b></b>Best Banking in the United State</li>
-            <li><b></b>Location in CMPE 131 Class</li>
-            <li><b></b>Built by group #2</li>
-            <li><b></b>2020, All Rights Reserved</li>
-        </ul>
-        <div class="footer-sm">
-            <a href="#"><img src="images/facebook.png" alt="favebook icon"></a>
-            <a href="#"><img src="images/youtube.png" alt="youtube icon"></a>
-            <a href="#"><img src="images/twitter.png" alt="twitter icon"></a>
-        </div>
-    </footer> -->
 </body>
 <script crossorigin defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
     integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous">
