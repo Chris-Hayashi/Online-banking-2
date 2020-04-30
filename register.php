@@ -103,8 +103,9 @@
       </header> -->
 
     <!-- Navbar -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" id="homeLink" href="#">Online Banking</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
+        <!-- <a class="navbar-brand" id="homeLink" href="#">Online Banking</a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -116,7 +117,7 @@
             <div class="nav-item">
             </div>
         </div>
-    </nav> -->
+    </nav>
 
     <!-- Register Form -->
     <div>
@@ -130,7 +131,7 @@
 
                         <p class="#">Register today for all your banking needs. Already have an account? <a
                                 href="login.php">
-                                <br/>Log in here</a></p>
+                                <br />Log in here</a></p>
                     </div>
                     <div class="col-md-6">
                         <img src="./images/heroLogo2.png" id="registerLogo" alt="logo">
@@ -309,6 +310,6 @@
 </body>
 <script crossorigin defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
     integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous">
-    </script>
+</script>
 
 </html>
