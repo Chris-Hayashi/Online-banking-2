@@ -52,15 +52,13 @@
                     <h3>Balance: $<span id="balance"></span></h3>
                 </div>
                 <br>
-                <div class="row">
-                    <h5>Activity Summary</h5>
-                </div>
 
                 <hr>
 
+                <!-- Account Options -->
                 <div class="row" id="accountOptions">
                     <div class="col-md-4">
-                        <button>Deposit</button>
+                        <button type="button" data-toggle="modal" data-target="depositModal">Deposit</button>
                     </div>
                     <div class="col-md-4">
                         <button>Withdraw</button>
@@ -72,6 +70,7 @@
 
                 <br><br>
                 
+                <!-- Close Account -->
                 <div class="row" id="closeAccountRow">
                     <div class="col-md-12">
 
@@ -84,7 +83,7 @@
     </div>
 
     <!-- Deposit Modal -->
-    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal" id="depositModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
