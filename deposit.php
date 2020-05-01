@@ -19,7 +19,7 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="account.php">
+    <a href="welcome.php">
       <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
       </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -42,7 +42,7 @@
             <div class="card p-3" id="loginContainer">
                 <div class="card-body">
                     <h5 class="card-title">Make a Deposit</h5>
-          <form class="" action="deposit.php" method="post">
+          <form class="" action="deposit.php" method="post" enctype="multipart/form-data">
           <p>Account Number</p>
                 <input type="text" name="accountNumber" placeholder="Enter Account Number" value="">
                 <p>Pin Number</p>
@@ -50,7 +50,9 @@
                 <p>Deposit Amount</p>
                 <input type="text" name="depositAmount" placeholder="Enter Deposit Amount" value="">
                 <input type="submit" name="submit" value="Submit">
-                <input type="button" onclick="location.href='register.php';" value="Make Electronic Check Deposit" />
+                <p>Electronic Check Deposit</p>
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="upload">
           </form>
           </div>
             </div>
@@ -106,12 +108,28 @@
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_array($result);
 
+      $target_dir = "uploads/";
+      $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+      $uploadOk = 1;
+      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      // Check if image file is a actual image or fake image
+      if(isset($_POST["upload"])) {
+          $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      if($check !== false) {
+          echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+      } else {
+          echo "File is not an image.";
+          $uploadOk = 0;
+      }
+      }
 
       if($row['accountNumber'] == $accountNumber && $row['pin'] == $pin){
           // Get account balance, add requested amount, update database
         $balance = $row['balance'];
         $updatedBalance = $balance + $depositAmount;
         $sql = "UPDATE student SET balance='$updatedBalance' WHERE accountNumber='$accountNumber' and pin = '$pin'";
+
     if(mysqli_query($conn, $sql)){
         echo "Amount successfully deposited.";
     } else {

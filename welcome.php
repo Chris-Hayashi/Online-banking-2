@@ -1,3 +1,5 @@
+<?php include('accountProcess.php');
+?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -13,8 +15,9 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
-    <!-- <a class="navbar-brand" id="homeLink" href="#">Online Banking</a> -->
+<a href="welcome.php">
+      <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
+      </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,40 +36,34 @@
         <div class="container">
             <div class="card" id="welcomeCard">
                 <div class="row">
-                    <h1>Welcome back, <span id="userName"></span></h1>
+                <h1>Welcome  <span style="color:darkolivegreen;font-weight:bold"><i><?php echo $login_name; ?></i></span>,</h1>
                 </div>
 
                 <br>
 
                 <div class="row">
-                    <p>Account Number: <span id="accountNo"></span></p>
-                </div>
-                <div class="row">
-                    <p>Routing Number: <span id="routingNo"></span></p>
+                <p>Account Number: <span style="color:darkolivegreen;font-weight:bold"><i><?php echo $login_accountNumber; ?></i></span></p>
                 </div>
 
                 <hr>
 
                 <!-- Account Overview -->
                 <div class="row">
-                    <h3>Balance: $<span id="balance"></span></h3>
+                <h3>Balance: $<span style="color:darkolivegreen;font-weight:bold"><i><?php echo $login_balance; ?></i></span></h3>
                 </div>
                 <br>
-                <div class="row">
-                    <h5>Activity Summary</h5>
-                </div>
 
                 <hr>
 
                 <div class="row" id="accountOptions">
                     <div class="col-md-4">
-                        <button>Deposit</button>
+                    <a href="deposit.php"> <button>Deposit</button> </a>
                     </div>
                     <div class="col-md-4">
-                        <button>Withdraw</button>
+                    <a href="withdrawal.php"> <button>Withdraw</button> </a>
                     </div>
                     <div class="col-md-4">
-                        <button>Transfer</button>
+                    <a href="transfer.php"> <button>Transfer</button> </a>
                     </div>
                 </div>
 
@@ -74,8 +71,8 @@
                 
                 <div class="row" id="closeAccountRow">
                     <div class="col-md-12">
-
-                        <button id="closeAccountBtn">Close Account <img src="./images/closeImage.png" id="closeImg"></button>
+                    <a href="closeaccount.php"> 
+                        <button id="closeAccountBtn">Close Account <img src="./images/closeImage.png" id="closeImg"></button> </a>
                     </div>
                 </div>
 

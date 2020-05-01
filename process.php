@@ -1,4 +1,3 @@
-session_start();
     <?php
     if (isset($_POST["userName"]) && isset($_POST["password"])){
       if($_POST["userName"] && $_POST["password"]){
@@ -28,7 +27,7 @@ session_start();
           $results = mysqli_query($conn, $sql);
 
           if ($results){
-            header("location: account.php");
+            header("location: welcome.php");
           }
           else{
             echo mysqli_error($conn);
@@ -44,6 +43,3 @@ session_start();
       echo "form was not submitted.";
     }
     ?>
-
-  </body>
-  </html>

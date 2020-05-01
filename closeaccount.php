@@ -15,7 +15,7 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="login.php">
+        <a href="welcome.php">
             <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
             </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -38,11 +38,9 @@
             <div class="card" id="registerCard">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="mt-2">Register</h1>
+                        <h1 class="mt-2">Delete Account</h1>
 
-                        <p class="#">Register today for all your banking needs. Already have an account? <a
-                                href="login.php">
-                                <br/>Log in here</a></p>
+                        <p class="#">This procedure is permanent. Are you sure you wish to proceed?</p>
                     </div>
                     <div class="col-md-6">
                         <img src="./images/heroLogo2.png" id="registerLogo" alt="logo">
@@ -50,8 +48,8 @@
 
 
                 </div>
-                <form id="registerForm" action="process.php" method="post">
-                <div class="#" id="registerContainer">
+                <form id="deleteForm" action="closeaccount.php" method="post">
+                <div class="#" id="deleteContainer">
                     <div class="row">
                         <div class="col-md-6 mt-2">
                             <div class="form-group" >
@@ -67,42 +65,6 @@
                                 <input type="text" class="form-control" name="lastName" placeholder="Enter last name" />
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Street Address<span class="required">*</span></label>
-                        <input type="text" class="form-control" name="address" placeholder="Enter street address" />
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>City<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="city" placeholder="Enter city" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>State<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="state" placeholder="Enter state" />
-                                
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Zip Code<span class="required">*</span></label>
-                                <input type="number" class="form-control" name="zipCode" placeholder="Enter zip code" />
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Date of Birth<span class="required">*</span></label>
-                        <input type="date" class="form-control" name="dob" placeholder="Select Date of Bith" />
-                    </div>
-                    <div class="form-group">
-                        <label>Email<span class="required">*</span></label>
-                        <input type="email" class="form-control" name="email" placeholder="Enter email" />
                     </div>
                     <div class="form-group">
                         <label>Username<span class="required">*</span></label>
@@ -130,14 +92,8 @@
                         </div>
                     </div>
 
-                    <!-- Functionality to deposit money -->
-                    <div class="form-group">
-                        <label>Deposit Amount</label>
-                        <input type="text" class="form-control" name="balance" placeholder="$ " />
-                    </div>
-
                     <button type="submit" className="btn btn-lg btn-primary btn-block" id="register-btn">
-                        Register!
+                        Confirm
                     </button>
                 </form>
                 </div>
@@ -152,3 +108,33 @@
     </script>
 
 </html>
+<?php
+if (isset($_POST["userName"]) && isset($_POST["password"])) {
+    if ($_POST["userName"] && $_POST["password"]) {
+        $firstName=$_POST['firstName'];
+        $lastName=$_POST['lastName'];
+        $userName = $_POST["userName"];
+        $password = $_POST["password"];
+        $accountNumber = $_POST["accountNumber"];
+        $pin = $_POST["pin"];
+      // create connection
+      $conn = mysqli_connect("localhost", "root", "", "users");
+      // check connection
+      if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+      }
+
+// sql to delete a record
+$sql = "DELETE FROM student WHERE firstName='$firstName' and lastName='$lastName' and userName='$userName' and password='$password' and accountNumber='$accountNumber' and pin='$pin'";
+
+if (mysqli_query($conn, $sql)) {
+    header("Location: login.php");
+} else {
+    echo "Error deleting record: " . mysqli_error($conn);
+}
+mysqli_close($conn);
+} else {
+    echo "Nothing was submitted. Try again!";
+   }
+      }
+?>

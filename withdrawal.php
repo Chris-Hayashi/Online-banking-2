@@ -19,7 +19,7 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="account.php">
+    <a href="welcome.php">
       <img class="navbar-brand" id="homeLink" src="./images/heroLogo1.png">
       </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
