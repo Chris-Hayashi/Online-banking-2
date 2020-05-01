@@ -96,12 +96,23 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Upload a check and enter deposit amount</p>
+          <form class="" action="deposit.php" method="post" enctype="multipart/form-data">
+            <p>Account Number</p>
+                  <input type="text" name="accountNumber" placeholder="Enter Account Number" value="">
+                  <p>Pin Number</p>
+                  <input type="text" name="pin" placeholder="Enter Pin Number" value="">
+                  <p>Deposit Amount</p>
+                  <input type="text" name="depositAmount" placeholder="Enter Deposit Amount" value="">
+                  <input type="submit" name="submit" value="Submit">
+                  <p>Electronic Check Deposit</p>
+                  <input type="file" name="fileToUpload" id="fileToUpload">
+                  <input type="submit" value="Deposit" name="upload">
+            </form>
         </div>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer"> -->
           <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-primary">Deposit</button>
-        </div>
+          <!-- <button type="button" class="btn btn-primary">Deposit</button> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>
