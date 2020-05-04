@@ -37,22 +37,19 @@
     <div class="container">
       <div class="card" id="welcomeCard">
         <div class="row">
-          <h1>Welcome back, <span style="color:darkolivegreen;font-weight:bold"><i><?php echo $login_name; ?></i></span>,</h1>
+          <h1>Welcome back, <span style="color:maroon;font-weight:bold"><i><?php echo $firstName . " " . $lastName . "!"; ?></i></span></h1>
         </div>
-
         <br>
-
         <div class="row">
-          <p>Account Number: <span
-              style="color:darkolivegreen;font-weight:bold"><i><?php echo $login_accountNumber; ?></i></span>
-          </p>
+            <p>Routing Number: <span style="color:maroon;font-weight:bold"><i><?php echo $login_routing; ?></i></span></p>
         </div>
+
 
         <hr>
 
         <!-- Account Overview -->
         <div class="row">
-          <h3>Balance: $<span style="color:darkolivegreen;font-weight:bold"><i><?php echo $login_balance; ?></i></span>
+          <h3>Balance: $<span style="color:maroon;font-weight:bold"><i><?php echo $login_balance; ?></i></span>
           </h3>
         </div>
         <br>
@@ -101,16 +98,16 @@
         </div>
         <div class="modal-body">
           <form class="" action="deposit.php" method="post" enctype="multipart/form-data">
-            <p>Account Number</p>
-            <input type="text" name="accountNumber" placeholder="Enter Account Number" value="">
+            <p>Routing Number</p>
+            <input type="text" name="routingNumber" placeholder="Enter Routing Number" value="">
             <p>Pin Number</p>
             <input type="text" name="pin" placeholder="Enter Pin Number" value="">
             <p>Deposit Amount</p>
             <input type="text" name="depositAmount" placeholder="Enter Deposit Amount" value="">
-            <input type="submit" name="submit" value="Submit">
+            <input type="submit" name="submit" value="Deposit">
             <p>Electronic Check Deposit</p>
             <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Deposit" name="upload">
+            <input type="submit" value="Upload" name="upload">
           </form>
         </div>
 
@@ -123,25 +120,21 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title">Make a Withdrawal</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <form class="" action="withdrawal.php" method="post">
-            <p>Account Number</p>
-            <input type="text" name="accountNumber" placeholder="Enter Your Account Number" value="">
+            <p>Routing Number</p>
+            <input type="text" name="routingNumber" placeholder="Enter Your Routing Number" value="">
             <p>Pin Number</p>
             <input type="text" name="pin" placeholder="Enter Pin Number" value="">
             <p>Withdrawal Amount</p>
             <input type="text" name="withdrawAmount" placeholder="Enter Withdrawal Amount" value="">
             <input type="submit" name="submit" value="Submit">
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -152,29 +145,24 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Transfer</h5>
+          <h5 class="modal-title">Transfer Funds</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <form class="" action="transfer.php" method="post">
-            <p>Account Number</p>
-            <input type="text" name="accountNumber" placeholder="Enter Your Account Number" value="">
+            <p>Routing Number</p>
+            <input type="text" name="routingNumber" placeholder="Enter Your Routing Number" value="">
             <p>Pin Number</p>
             <input type="text" name="pin" placeholder="Enter Pin Number" value="">
-            <p>Destination Account Number</p>
-            <input type="text" name="destinationAccNum" placeholder="Enter Account Number You Wish to Transfer Funds"
+            <p>Destination Routing Number</p>
+            <input type="text" name="destinationRoutNum" placeholder="Enter Destination Routing Number"
               value="">
             <p>Transfer Amount</p>
             <input type="text" name="transferAmount" placeholder="Enter Transfer Amount" value="">
             <input type="submit" name="submit" value="Submit">
           </form>
-          <!-- </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div> -->
         </div>
       </div>
     </div>

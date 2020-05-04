@@ -82,42 +82,36 @@
 </html>
 
 <?php
-// Initialize the session 
-session_start(); 
-  $logged_in = false;
-  if (isset($_POST["userName"]) && isset($_POST["password"])) {
-    if ($_POST["userName"] && $_POST["password"]) {
-      $username = $_POST["userName"];
-      $password = $_POST["password"];
-      $_SESSION['userName'] = $_POST["userName"];
-      $_SESSION['password'] = $_POST["password"];
-      // create connection
-      $conn = mysqli_connect("localhost", "root", "", "users");
-      // check connection
-      if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-      }
+session_start();
 
-      // log in user
-      $sql = "SELECT password FROM student WHERE userName = '$username'";
-      $results = mysqli_query($conn, $sql);
-      if ($results) {
-        $row = mysqli_fetch_assoc($results);
-        if ($row["password"] === $password) {
-          $logged_in = true;
-          $sql = "SELECT * FROM student";
-          $results = mysqli_query($conn, $sql);
-          $_SESSION['login_user'] = $username;
-          header("Location: welcome.php");
-        } else {
-          echo "Incorrect Password";
-        }
-         } else {
-                echo mysqli_error($conn);
-                 }
-        mysqli_close($conn); // close connection
-      } else {
-         echo "Nothing was submitted. Try again!";
-        }
-           }
-  ?>
+if (isset($_POST["userName"]) && isset($_POST["password"])){
+  if($_POST["userName"] && $_POST["password"]){
+    $conn = mysqli_connect("localhost", "root", "");
+    mysqli_select_db($conn, "users");
+    if (!$conn){
+            die("connection failed: ".mysqli_connect_error());
+          }
+
+    $username = $_POST["userName"];
+    $password = $_POST["password"];
+
+    $sql = "select * from student where username = '$username' and password = '$password' ";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+
+
+    if($row['userName'] == $username && $row['password'] == $password){
+      $_SESSION['login_user'] = $username;
+      header("location: welcome.php");
+      exit();
+    } else{
+      $message = "Username or Password is incorrect. \\nTry again.";
+      echo "<script type = 'text/javascript'>alert('$message');</script>";
+
+
+      }
+    }
+  }
+
+
+ ?>
