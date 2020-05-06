@@ -11,12 +11,13 @@
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   $login_name = $row['userName'];
-  $login_accountNumber = $row['accountNumber'];
+  $firstName = $row['firstName'];
+  $lastName = $row['lastName'];
   $login_balance = $row['balance'];
+  $login_routing = $row['routingNumber'];
 
 
   if(!isset($login_name)){
     mysqli_close($conn);
-    // header('location: register.html');
   }
  ?>

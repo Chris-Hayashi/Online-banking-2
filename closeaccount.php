@@ -78,8 +78,8 @@
                         <div class="col-md-6">
                             <!-- Randomly generated unique account number -->
                             <div class="form-group">
-                                <label>Account Number<span class="required">*</span></label>
-                                <input type="number" class="form-control" name="accountNumber" placeholder="" />
+                                <label>Routing Number<span class="required">*</span></label>
+                                <input type="number" class="form-control" name="routingNumber" placeholder="" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -115,7 +115,7 @@ if (isset($_POST["userName"]) && isset($_POST["password"])) {
         $lastName=$_POST['lastName'];
         $userName = $_POST["userName"];
         $password = $_POST["password"];
-        $accountNumber = $_POST["accountNumber"];
+        $routingNumber = $_POST["routingNumber"];
         $pin = $_POST["pin"];
       // create connection
       $conn = mysqli_connect("localhost", "root", "", "users");
@@ -125,10 +125,10 @@ if (isset($_POST["userName"]) && isset($_POST["password"])) {
       }
 
 // sql to delete a record
-$sql = "DELETE FROM student WHERE firstName='$firstName' and lastName='$lastName' and userName='$userName' and password='$password' and accountNumber='$accountNumber' and pin='$pin'";
+$sql = "DELETE FROM student WHERE firstName='$firstName' and lastName='$lastName' and userName='$userName' and password='$password' and routingNumber='$routingNumber' and pin='$pin'";
 
 if (mysqli_query($conn, $sql)) {
-    header("Location: login.php");
+    echo '<script>alert("Account successfully deleted.")</script>';
 } else {
     echo "Error deleting record: " . mysqli_error($conn);
 }
